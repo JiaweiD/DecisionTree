@@ -36,4 +36,6 @@ So we calculate every attribute's gini index to choose the smallest one.
                   
 This kind of decision tree is called CART decision tree which can be used in both classification and regression.
 
+The detail algorithm and code is shown in 'trees.py'.
+
 So far, we can train datasets with discrete attributes to create a decision tree, but how to deal with continuous attributes(seeing 'Continuous value processing.txt'), how to process missing calues(seeing 'missing value processing.txt') and how to avoid over-fitting(seeing 'Pruning.txt') is so far need to be considered.
