@@ -1,1 +1,11 @@
+As disccussed in README, we can deal with discrete attributes by the decision tree algorithm. What if the atrribute has continous values?
 
+We can use bi-partition to make continuous attributes discrete.
+First, make up a set of splitting point:
+                  Ta = {(a(i)+a(i+1))/2|1≤i≤n-1}     n = length(dataset)
+
+Second, we can apply information gain on these points:
+                  Gain(D,a) = max Gain(D,a,t)     t∈Ta
+                            = max Ent(D) - ΣDtλ/D*Ent(Dtλ)     t∈Ta
+                            
+Then, the t in Ta that makes Gain(D,a) the largest is the splitting point of the continuous attribute.
