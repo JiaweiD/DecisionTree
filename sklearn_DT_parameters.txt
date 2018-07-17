@@ -1,0 +1,51 @@
+	DecisionTreeClassifier
+  
+  criterion:               "gini" or "entrophy", default="gini"
+                           It stands for the standard when choosing a feature to split the dataset. We often use "gini" for 
+                           usual.
+            
+  splitter:                "best" or "random", default="best"
+                           It stands for the standard to choose which feature to split the dataset. "best" stands for choosing 
+                           the best feature while "random" stands for choosing the best one in part of the features. We use 
+                           "random" when the sample amount is large to reduce computing time cost.
+                 
+  max_features:            "auto","sqrt","log2",int,float,None, default = None
+                           It stands for the max features considered when splitting the dataset. We use default set when the 
+                           feature amount is small(<50), while we use other parameters to control the computing time when the 
+                           feature amount is large.
+                 
+  max_depth:               int or None, default=None
+                           It stands for the max depth of the decision tree. When both the sample amount and the feature amount 
+                           are large, we tend to use this parameter, usually between 10 and 100.
+                 
+  min_samples_split:       int,float, default=2
+                           It stands for the minimum number of the samples when splitting the node. When the sample amount is 
+                           large, we tend to use this parameter.
+                      
+  min_samples_leaf:        int,float, default=1
+                           It stands for the minimum number of the samples in the leaf nodes. When the sample number is smaller 
+                           than the paramter, the leaf node will be pruned with its brother nodes. We tend to use this 
+                           parameter when the sample amount is large.
+                      
+  min_weight_fraction_leaf:float, default=0
+                           It stands for the minimum sum of the sample weights in every leaf node. When the sum is smaller than
+                           the parameter, the leaf node will be pruned with its brother nodes. We tend to use this parameter 
+                           when the dataset bring in sample weight because of missing values in many samples or the large bias
+                           distribution of sample classification.
+                           
+  max_leaf_nodes:          int or None, default=None
+                           It stands for the max number of leaf nodes. When the sample amount is large, we can use this 
+                           parameter to prevent over-fitting.
+                           
+  class_weights:           dict,list of dicts,"balanced" or None, default=None
+                           It stands for the weights of classes. We use this parameter when some classes are especially more
+                           than others to prevent the tree has a preferrance of these classes. "balanced" will make the model
+                           calculate the weights by itself, using the formula n_samples / (n_classes * np.bincount(y)).
+                           
+  min_impurity_split:      float
+                           It stands for the minimum impurity of a leaf node. When a node's impurity is smaller than this 
+                           parameter, it won't be used to split the dataset and will become a leaf node.
+                       
+  presort:                 bool, default=False
+                           It stands for whether you need to sort the dataset before generating a decision tree. When the 
+                           sample amount is small, "True" will increase the efficiency.
